@@ -2,8 +2,9 @@ var express = require("express");
 var router = express.Router();
 let client = require("../dbconnect");
 let projectCollection;
-setTimeout(() =>{
-    projectCollection = client.mongoClient.db().collection("porject");
+
+setTimeout(() => {
+    projectCollection = client.mongoClient.db().collection("petsNew");
 }, 2000);
 
 const insertProjects = (project,callback) => {
@@ -13,6 +14,7 @@ const insertProjects = (project,callback) => {
 const getProjects = (callback) => {
     projectCollection.find({}).toArray(callback);
 }
+
 
 
 router.get('/', (req, res) => {
@@ -40,3 +42,5 @@ router.post('/', (req, res) => {
         }
     });
 })
+
+module.exports = router;

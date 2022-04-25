@@ -11,3 +11,5 @@ client.connect((err, db) => {
         console.log("DB Error", err);
     }
 });  
+
+exports.mongoClient = client;
