@@ -1,8 +1,10 @@
 var express = require("express");
+const controller = require("../controller");
 var router = express.Router();
 
+
 router.get('/', (req, res) => {
-        res.json({statusCode: 200, message:"Success", data: {"name" : "Saqib", "age": "24" }});
+    controller.userController.getUser(req,res);
 })
 
 

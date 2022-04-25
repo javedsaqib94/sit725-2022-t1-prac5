@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 app.use('/api/projects', projectRoutes); //bind it
-app.use('/api/user', userRoute); //bind ir
+app.use('/api/user', userRoute); //bind it
 
 
 const addNumbers = (number1, number2) => {
@@ -21,9 +21,9 @@ const addNumbers = (number1, number2) => {
     var result = num1 + num2;
     return result;
 }
-app.get("/addTwoNumbers",(req,res) => {
-    var number1 = req.query.number1;
-    var number2 = req.query.number2;
+app.get("/addTwoNumbers/number1/number2",(req,res) => {
+    var number1 = req.params.number1;
+    var number2 = req.params.number2;
     var result = addNumbers(number1,number2);
     res.json({statusCode: 200, data: result, message:"Success"});
 });
